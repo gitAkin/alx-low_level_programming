@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <unistd.h>
 /**
   *main-this is the program that prfints that piece of art and more.
   *
