@@ -4,7 +4,7 @@
  * is_prime - This function  detects if an input number is a prime number.
  * @o: input number.
  * @p: iterator.
- * Return: 1 if o is a prime number. 0 if n is not a prime number.
+ * Return: 1 if o is a prime number. 0 if o is not a prime number.
  */
 int is_prime(unsigned int o, unsigned int p)
 {
@@ -19,8 +19,8 @@ int is_prime(unsigned int o, unsigned int p)
 }
 /**
  * is_prime_number - This function  detects if an input number is a prime number.
- * @n: input number.
- * Return: 1 if n is a prime number. 0 if n is not a prime number.
+ * @o: input number.
+ * Return: 1 if o is a prime number. 0 if o is not a prime number.
  */
 int is_prime_number(int o)
 {
