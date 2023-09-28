@@ -18,7 +18,7 @@ int is_prime(unsigned int o, unsigned int p)
 	return (0 + is_prime(o, p + 1));
 }
 /**
- * is_prime_number - This function  detects if an input number is a prime number.
+ * is_prime_number - it detects if an input number is a prime number.
  * @o: input number.
  * Return: 1 if o is a prime number. 0 if o is not a prime number.
  */
