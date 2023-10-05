@@ -21,7 +21,7 @@ char *str_concat(char *s1, char *s2)
 	for (a = 0; s1[a] != '\0'; a++)
 		;
 
-	for (j = 0; s2[j] != '\0'; b++)
+	for (b = 0; s2[b] != '\0'; b++)
 		;
 
 	akin = malloc(sizeof(char) * (a + b + 1));
@@ -36,7 +36,7 @@ char *str_concat(char *s1, char *s2)
 		akin[c] = s1[c];
 
 	restrit = b;
-	for (b = 0; b <= restrit; k++, b++)
+	for (b = 0; b <= restrit; c++, b++)
 		akin[c] = s2[b];
 
 	return (akin);
