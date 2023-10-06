@@ -14,17 +14,17 @@ int count_word(char *s)
 	arc = 0;
 	d = 0;
 
-	for(e = 0; s[e] != '\0'; e++)
+	for (e = 0; s[e] != '\0'; e++)
 	{
 		if (s[e] == ' ')
 			arc = 0;
-		else if(arc == 0)
+		else if (arc == 0)
 		{
 			arc = 1;
 			d++;
 		}
 	}
-	return(d);
+	return (d);
 }
 /**
  * strtow - This function splits a string into words.
@@ -47,7 +47,7 @@ char **strtow(char *str)
 	if (ptr1 == NULL)
 		return (NULL);
 
-	for (a = 0; a<= length; a++)
+	for (a = 0; a <= length; a++)
 	{
 		if (str[a] == ' ' || str[a] == '\0')
 		{
@@ -56,7 +56,7 @@ char **strtow(char *str)
 				finish = a;
 				ptr2 = (char *) malloc(sizeof(char) * (c + 1));
 				if (ptr2 == NULL)
-					return(NULL);
+					return (NULL);
 				while (begin < finish)
 					*ptr2++ = str[begin++];
 				*ptr2 = '\0';
