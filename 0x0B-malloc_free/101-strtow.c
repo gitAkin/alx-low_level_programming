@@ -2,66 +2,73 @@
 #include <stdlib.h>
 
 /**
- * ch_free_grid - This function frees a 2 dimensional array.
- * @grid: This is a multidimensional array of char.
- * @height: This is the height of the array.
+ * count_word - This function counts the number of words in a string.
+ * @s: this is a string to evaluate.
  *
  * Return: no return
  */
-void ch_free_grid(char **grid, unsigned int height)
+int count_word(char *s)
 {
-	if (grid != NULL && height != 0)
-	{
-		for (; height > 0; height--)
-			free(grid[height]);
-		free(grid[height]);
-		free(grid);
-	}
-}
+	int arc, e, d;
 
+	arc = 0;
+	d = 0;
+
+	for(e = 0; s[e] != '\0'; e++)
+	{
+		if (s[e] == ' ')
+			arc = 0;
+		else if(arc == 0)
+		{
+			arc = 1;
+			d++;
+		}
+	}
+	return(d);
+}
 /**
- * strtow - This fuunction splits a string into words.
+ * strtow - This function splits a string into words.
  * @str: This is a string.
  *
  * Return: pointer of an array of integers
  */
 char **strtow(char *str)
 {
-	char **argout;
-	unsigned int c, height, a, b, d;
+	char **ptr1, *ptr2;
+	int a, b = 0, length = 0, alph, c = 0, begin, finish;
 
-	if (str == NULL || *str == '\0')
+	while (*(str + length))
+		length++;
+	alph = count_word(str);
+	if (alph == 0)
 		return (NULL);
-	for (c = height = 0; str[c] != '\0'; c++)
-		if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
-			height++;
-	argout = malloc((height + 1) * sizeof(char *));
-	if (argout == NULL || height == 0)
-	{
-		free(argout);
+
+	ptr1 = (char **) malloc(sizeof(char *) * (alph + 1));
+	if (ptr1 == NULL)
 		return (NULL);
-	}
-	for (a = d = 0; a < height; a++)
+
+	for (a = 0; a<= length; a++)
 	{
-		for (c = d; str[c] != '\0'; c++)
+		if (str[a] == ' ' || str[a] == '\0')
 		{
-			if (str[c] == ' ')
-				d++;
-			if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+			if (c)
 			{
-				argout[d] = malloc((c - d + 2) * sizeof(char));
-				if (argout[a] == NULL)
-				{
-					ch_free_grid(argout, a);
-					return (NULL);
-				}
-				break;
+				finish = a;
+				ptr2 = (char *) malloc(sizeof(char) * (c + 1));
+				if (ptr2 == NULL)
+					return(NULL);
+				while (begin < finish)
+					*ptr2++ = str[begin++];
+				*ptr2 = '\0';
+				ptr1[b] = ptr2 - c;
+				b++;
+				c = 0;
 			}
 		}
-		for (b = 0; d <= c; d++, b++)
-			argout[a] [b] = str[d];
-		argout[a][b] = '\0';
+		else if (c++ == 0)
+			begin = a;
 	}
-	argout[a] = NULL;
-	return (argout);
+	ptr1[b] = NULL;
+
+	return (ptr1);
 }
