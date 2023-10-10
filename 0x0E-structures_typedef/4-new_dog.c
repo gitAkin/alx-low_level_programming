@@ -22,7 +22,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	for name1 = 0; name[name1]; name1++)
+	for (name1 = 0; name[name1]; name1++)
 		;
 
 	for (owner2 = 0; owner[owner2]; owner2++)
