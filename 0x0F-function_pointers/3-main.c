@@ -1,7 +1,7 @@
 #include "3-calc.h"
 
 /**
- * main - Thi is used to check the code 
+ * main - This is used to check the code
  * for Holberton School students.
  * @argc: This represents an argument count.
  * @argv: This represents an argument vector.
