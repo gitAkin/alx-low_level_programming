@@ -10,15 +10,15 @@
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list list;
-	int a = o;
+	int a = n;
 	char *str;
 
 	if (!n)
 	{
-		printf("\n";
-		return:
+		printf("\n");
+		return;
 	}
-	va_start(list, o);
+	va_start(list, n);
 	while (a--)
 		printf("%s%s", (str = va_arg(list, char *)) ? str : "(nil)",
 			a ? (separator ? separator : "") : "\n");
