@@ -28,6 +28,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	rdo = read(file, rdwr, letters);
 	wro = write(STDOUT_FILENO, rdwr, rdo);
+	if (rdo != wro)
+		return (0);
 
 	close(file);
 
